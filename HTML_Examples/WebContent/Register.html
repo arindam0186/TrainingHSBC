@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register</title>
+</head>
+<body>
+
+	<header>
+		<h4>Register Here</h4>
+	</header>
+	
+	<section>
+	
+		<form action="ShowInvoice.html" method="get">
+		
+			<div>
+				<label>First Name</label>
+				<input type="text" name="firstName" required="required">
+			</div>
+			
+			<div>
+				<label>Last Name</label>
+				<input type="text" name="lastName" required="required">
+			</div>
+			
+			<div>
+				<label>Date of Birth</label>
+				<input type="date" name="dateOfBirth" required="required">
+			</div>
+			
+			<div>
+				<label>Email</label>
+				<input type="email" name="email" required="required">
+			</div>
+			
+			<div>
+				<label for="city">City</label>
+				<select name="city" id="city">
+					  <option value="delhi">Delhi</option>
+					  <option value="mumbai">Mumbai</option>
+					  <option value="hyderabad">Hyderabad</option>
+					  <option value="pune">Pune</option>
+				</select>
+			</div>
+			
+			<div>
+				<label>Martial Status</label>
+				<div>
+					<input type="radio" name="martialStatus" value="married">
+					<label for="married">Married</label><br>
+					<input type="radio" name="martialStatus" value="unmarried">
+					<label for="unmarried">Unmarried</label><br>
+				</div>
+			</div>
+			
+			<div>
+				<label>Special Interest</label>
+				<div>
+					<input type="checkbox" name="specialInterest" value="sports">
+	  				<label for="specialInterest">Sports</label><br>
+	  				<input type="checkbox" name="specialInterest" value="politics">
+	  				<label for="specialInterest">Politics</label><br>
+	  				<input type="checkbox" name="specialInterest" value="music">
+	  				<label for="specialInterest">Music</label><br>
+				</div>
+			</div>
+			
+			<div>
+				<label for="comments">Comments</label>
+				<textarea name="comments" rows="4" cols="50"></textarea>
+			</div>
+			
+			<div>
+				<input type="reset">
+				<input type="submit" value="login">
+			</div>
+		
+		</form>
+	
+	</section>
+
+	<footer>
+		<hr>
+		<p>Designed by Arindam Goel, Kanpur</p>
+		<a href="mailTo:admin@abc.com">Mail Me</a>
+		<hr>
+	</footer>
+	
+</body>
+</html>

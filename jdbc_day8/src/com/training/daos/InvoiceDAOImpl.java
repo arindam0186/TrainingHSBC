@@ -55,6 +55,18 @@ public class InvoiceDAOImpl implements InvoiceDAO {
 			
 			ResultSet result = pstmt.executeQuery();
 			
+			ResultSetMetaData metaData = result.getMetaData();
+			int columnCount = metaData.getColumnCount();
+			
+			for(int i=1;i<=columnCount;i++) {
+				System.out.println("====== Column: = "+metaData.getColumnName(i));
+			}
+			
+			DatabaseMetaData dbInfo = this.derbyConnection.getMetaData();
+			
+			System.out.println(dbInfo.getDriverName());
+			System.out.println(dbInfo.getDatabaseProductVersion());
+			
 			while(result.next()) {
 				int invoiceNumber = result.getInt("invoiceNumber");
 				String customerName = result.getString("customerName");
