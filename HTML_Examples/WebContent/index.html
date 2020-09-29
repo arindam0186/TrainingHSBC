@@ -24,9 +24,11 @@
 	<form action="ShowInvoice.html" method="get">
 	
 		<div>
-			<label>User Name</label>
-			<input type="text" name="userName" required="required">
+			<label>Mobile</label>
+			<input id="mobile" type="number" name="mobile" required="required">
 		</div>
+		
+		<span id="message"></span>
 		
 		<div>
 			<label>PassWord</label>
@@ -53,6 +55,16 @@
 	<a href="mailTo:admin@abc.com">Mail Me</a>
 	<hr>
 </footer>
+
+<script type="text/javascript">
+
+var message = document.getElementById("mobile");
+
+menuButton.addEventListener("blur",function(){
+	var textMessage = document.getElementById("message");
+	navBar.innerHTML = "Please enter corectly"
+	
+</script>
 
 </body>
 </html>

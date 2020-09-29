@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Using JavaScript</title>
+<script type="text/javascript">
+
+
+function addHeading(){
+	var head = document.getElementById("heading");
+	head.innerHTML = "Jeevan Textiles";
+}
+
+</script>
+</head>
+<body>
+<h1 id="heading"></h1>
+
+<nav id="menu"></nav>
+
+<button id="menuButton">Show Menu</button>
+
+<script type="text/javascript">
+
+	addHeading();
+	
+	var menuButton = document.getElementById("menuButton");
+	
+	menuButton.addEventListener("click",function(){
+		var navBar = document.getElementById("menu");
+		navBar.innerHTML = "<a href='#'>Menu</a>"
+		
+	});
+
+</script>
+</body>
+</html>
