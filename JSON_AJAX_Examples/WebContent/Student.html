@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Page</title>
+</head>
+<body>
+
+<label>Student ID</label>
+<input type="text" name="studentId" id="studentId">
+
+<label>Student Name</label>
+<input type="text" name="studentName" id="studentName">
+
+<button onclick="clickFunct()" id="submitBtn">Submit</button>
+
+<h4 id="msg"></h4>
+
+<script type="text/javascript">
+
+	var xhr = new XMLHttpRequest();
+	var studentIdField = document.getElementById("studentId");
+	var studentNameField = document.getElementById("studentName");
+	var submitField = document.getElementById("submitBtn");
+	var msgField = document.getElementById("msg");
+
+
+	
+	studentIdField.addEventListener('blur', function(){
+		
+		console.log(studentIdField.value);
+		var id = studentIdField.value;
+		
+		var url = "StudentServlet?studentId="+id;
+		
+		xhr.open("GET",url,true);
+		xhr.send(null);
+		
+		xhr.onreadystatechange = function(){
+			
+			var resp = xhr.responseText;
+			if(xhr.readyState == 4 && xhr.status == 200){
+				var value = JSON.parse(resp);
+				studentNameField.value = value.studentName;	
+			}
+		};
+
+		console.log(xhr);
+				
+	});
+	
+		function clickFunct(){
+			
+			var id = studentIdField.value;
+			var url = "StudentServlet?studentId="+id;
+			
+			xhr.open("POST",url,true);
+			xhr.send(null);
+			
+			xhr.onreadystatechange = function(){
+				
+				var resp = xhr.responseText;
+				if(xhr.readyState == 4 && xhr.status == 200){
+					var value = JSON.parse(resp);
+					msgField.innerHTML = "Student found.. " + value.studentId + " " + value.studentName ;	
+				}
+				
+			};
+		}
+	
+	
+
+</script>
+
+</body>
+</html>

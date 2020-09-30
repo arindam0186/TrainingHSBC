@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ajax Example</title>
+</head>
+<body>
+
+<label>User Name</label>
+<input type="text" name="userName" id="userName"><span id="msg"></span>
+
+<label>Pass Word</label>
+<input type="password" name="passWord" id="passWord">
+
+<script type="text/javascript">
+
+	var xhr = new XMLHttpRequest();
+	var usrNameField = document.getElementById("userName");
+	
+	usrNameField.addEventListener('blur', function(){
+		
+		console.log(usrNameField.value);
+		var name = usrNameField.value;
+		
+		var url = "ValidateServlet?userName="+name;
+		
+		xhr.open("GET",url);
+		xhr.send(null);
+		
+		xhr.onreadystatechange = processRequest;
+
+		console.log(xhr);
+				
+	});
+	
+	function processRequest(){
+		
+		var msgField = document.getElementById("msg");
+		
+		if(xhr.readyState == 4 && xhr.status == 200){
+			var resp = xhr.responseText.trim();
+			msgField.innerHTML = resp;
+			if(resp === 'Valid'){
+				msgField.style = "color:#00FF00";
+			}
+			else{
+				msgField.style = "color:#FF0000";
+			}
+			
+		}
+	}
+
+</script>
+</body>
+</html>

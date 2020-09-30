@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Typicode Page</title>
+</head>
+<body>
+
+<h1>Details</h1>
+
+<ol id="list"></ol>
+
+<script type="text/javascript">
+
+
+var xhr = new XMLHttpRequest();
+var listField = document.getElementById("list");
+
+window.addEventListener('load', (event) => {
+    var url = "http://jsonplaceholder.typicode.com/users";
+    xhr.open("GET",url,true);
+	xhr.send(null);
+	
+	xhr.onreadystatechange = function(){
+		
+		var resp = xhr.responseText.trim();
+		if(xhr.readyState == 4 && xhr.status == 200){
+			var value = JSON.parse(resp);
+			var innerString = "";
+			for (var i = 0; i < value.length; i++) {
+				 innerString = innerString + "<li>"+value[i].name+" || "+value[i].email+"</li>";
+				}
+			listField.innerHTML = innerString;
+		}
+	};
+
+	console.log(xhr);
+
+});
+
+</script>
+
+</body>
+</html>
