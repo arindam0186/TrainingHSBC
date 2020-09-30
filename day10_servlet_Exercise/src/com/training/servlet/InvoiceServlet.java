@@ -51,6 +51,10 @@ public class InvoiceServlet extends HttpServlet {
 		
 		Invoice newInvoice = new Invoice(id, customerName, Double.parseDouble(amount));
 		
+		InvoiceDAOImpl dao = new InvoiceDAOImpl();
+//		
+//		boolean result = dao.add(newInvoice);
+		
 		request.setAttribute("invoiceObject", newInvoice);
 		dispatcher = request.getRequestDispatcher("welcome.jsp");
 		dispatcher.forward(request, response);

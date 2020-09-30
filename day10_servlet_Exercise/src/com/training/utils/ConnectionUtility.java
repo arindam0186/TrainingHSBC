@@ -11,14 +11,21 @@ public class ConnectionUtility {
 		try {
 			String derbyURL = "jdbc:derby:SampleDB;create=true";
 			
+			Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
+			
 			derbyConnection = DriverManager.getConnection(derbyURL);
 			
 			if(derbyConnection!=null) {
 				System.out.println("Connection Established");
 			}
 			
+			Statement stmt;
+			stmt = derbyConnection.createStatement();
+			String sql = "create table invoice(invoiceNumber int primary key,customerName varchar(20),amount double)";
+			stmt.execute(sql);
+			
 		}
-		catch(SQLException e) {
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 		return derbyConnection;
